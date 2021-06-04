@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+<title>OrBI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<!-- <link rel="stylesheet" href="css/menu.css"> -->
+<link rel="shortcut icon" href="img/favicon.ico">
+<script src="components/navbar.js"></script>
+<script src="js/translation.js"></script>
+
+<style>
+    .project-title {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+</style>
+
+<body>
+    <!-- Navbar (sit on top) -->
+    <navbar-component></navbar-component>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+        <img class="w3-image" src="img/matterportvr/screenshot1.png" alt="Architecture" width="1500" height="800">
+        <div class="w3-display-middle w3-margin-top w3-center">
+            <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>OrBI</b></span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
+
+        <div class="w3-container w3-padding-32" id="projects">
+            <h3 id="about-header" class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+            <p id="about-text">
+                    The Orbit Based Interface is a control interface designed to help users interact with virtual reality systems.
+            </p>
+        </div>
+
+        <div class="w3-container w3-padding-32" id="projects">
+            <h3 id="developer-header" class="w3-border-bottom w3-border-light-grey w3-padding-16">Developer</h3>
+            <img src="img/vrtools_paulo.jpg" alt="Paulo Rozatto" style="width:30%">
+            <p id="pr-text">
+                    The Orbit Based Interface was developed by Paulo Victor de M. Rozatto, a Computer Science student at UFJF. He loves coffe and science in general. Currently interested in
+                    Augmented Reality, Virtual Reality, and Computer Graphics.
+            </p>
+            <p>
+                <a class="info-button w3-button w3-light-grey w3-block" href="https://github.com/Paulo-Rozatto"
+                    target="_blank">More info</a>
+            </p>
+        </div>
+
+        <!-- Project Section -->
+        <div class="w3-container w3-padding-32" id="projects">
+            <h3 id="projects-header" class="w3-border-bottom w3-border-light-grey w3-padding-16">Applications</h3>
+            <p>
+                OrBI was used in the virtual reality projects of the "VrTools" project, which you can check below.
+            </p>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-col l3 m6 w3-margin-bottom ">
+                <a href="https://avrgroup.github.io/vrtools/projects/src/platonic-solids-application-VR.html">
+                    <div class="w3-display-container" style="border:2px solid black">
+                        <div id="platonic-solids" class="project-title w3-display-topleft w3-padding">Platonic Solids
+                        </div>
+                        <img src="img/projects-main-images/platonic-solids.jpeg" alt="Platonic Solids logo"
+                            style="width:100%;">
+                    </div>
+                </a>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <a href="javascript: TRANSLATION.redirect('projects/projectile-motion.html')">
+                    <div class="w3-display-container" style="border:2px solid black">
+                        <div id="projectile-motion" class="project-title w3-display-topleft w3-padding">Projectile
+                            Motion</div>
+                        <img src="img/projects-main-images/projectile-motion.jpg" alt="aiplane droping crate"
+                            style="width:100%;">
+                    </div>
+                </a>
+            </div>
+
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <a href="javascript: TRANSLATION.redirect('projects/inclined-plane.html')">
+                    <div class="w3-display-container" style="border:2px solid black">
+                        <div id="inclined-plane" class="project-title w3-display-topleft w3-padding">Inclined Plane
+                        </div>
+                        <img src="img/projects-main-images/inclined-plane.png" alt="box sliding on a inclined plane"
+                            style="width:100%;">
+                    </div>
+                </a>
+            </div>
+
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <a href="projects/vascular-diseases.html">
+                    <div class="w3-display-container" style="border:2px solid black">
+                        <div id="vascular-diseases" class="project-title w3-display-topleft w3-padding">Vascular
+                            Diseases</div>
+                        <img src="img/projects-main-images/vascular-diseases.png" alt="example of stroke"
+                            style="width:100%;">
+                    </div>
+                </a>
+            </div>
+
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <a href="javascript: TRANSLATION.redirect('projects/virtual-travel.html')">
+                    <div class="w3-display-container" style="border:2px solid black">
+                        <div id="virtual-travel" class="project-title w3-display-topleft w3-padding">Virtual Travel
+                        </div>
+                        <img src="img/projects-main-images/virtual-travel.png" alt="example of place"
+                            style="width:100%;">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            document.getElementById("gform").submit()
+        }
+
+        function resetForm() {
+            document.getElementById("gform").reset()
+
+        }
+
+        function showModal() {
+            document.getElementById("modal").style.display = "block"
+        }
+
+        function redirectTo(url) {
+
+        }
+
+        TRANSLATION.add(
+            '#external-apps-header',
+            'External Apps',
+            'Aplicativos externos'
+        );
+
+        TRANSLATION.add(
+            '#projects-header',
+            'Applications',
+            'Aplicações'
+        );
+
+        TRANSLATION.add(
+            '#platonic-solids',
+            'Platonic Solids',
+            'Sólidos Platônicos'
+        );
+
+        TRANSLATION.add(
+            '#solar-system',
+            'Solar System',
+            'Sistema Solar'
+        );
+
+        TRANSLATION.add(
+            '#architecture',
+            'Architecture',
+            'Arquitetura'
+        );
+
+        TRANSLATION.add(
+            '#projectile-motion',
+            'Projectile Motion',
+            'Movimento de Projéteis'
+        );
+
+        TRANSLATION.add(
+            '#inclined-plane',
+            'Inclined Plane',
+            'Plano Inclinado'
+        );
+
+        TRANSLATION.add(
+            '#vascular-diseases',
+            'Vascular Diseases',
+            'Doenças Vasculares'
+        );
+
+        TRANSLATION.add(
+            '#virtual-travel',
+            'Virtual Travel',
+            'Viagem Virtual'
+        );
+
+        TRANSLATION.add(
+            '#historical-figures',
+            'Historical Figures',
+            'Figuras Históricas'
+        );
+
+        TRANSLATION.add(
+            '#circuits',
+            'Eletic Circuits',
+            'Circuitos Elétricos'
+        )
+
+        TRANSLATION.add(
+            '#about-header',
+            'About',
+            'Sobre'
+        );
+
+        TRANSLATION.add(
+            '#sites',
+            'Sites in VR',
+            'Sites em RV'
+        );
+
+        TRANSLATION.add(
+            '#about-text',
+            'The Orbit Based Interface is a control interface designed to help users interact with virtual reality systems.' ,
+            'A Orbit Based Interface é uma interface de controle desenvolvida para auxiliar a interação dos usuários com sistemas em realidade virtual'
+        );
+
+
+        TRANSLATION.add(
+            '#lc-info',
+            'Graduated in Exact Sciences at UFJF (2014-2019). Computer Science student at UFJF. Currently interested in Virtual Reality, Augmented Reality' +
+            ' and Computer Graphics.',
+            'Graduado em Ciências Exatas pela UFJF(2014-2019). Estudante de Ciência da Computação da UFJF. Atualmente seus principais interesses são' +
+            'Realidade Virtual, Realidade Aumentada e Computação Gráfica.',
+        );
+
+        TRANSLATION.add(
+            '#pr-text',
+            ' The Orbit Based Interface was developed by Paulo Victor de M. Rozatto, a Computer Science student at UFJF. He loves coffe and science in general. ' +
+            ' Currently interested in Augmented Reality, Virtual Reality, and Computer Graphics.',
+            ' A Orbit Based Interface foi desenvolvida por Paulo Victor de M. Rozatto, um Estudante de Ciência da Computação da UFJF. Amante de café e de ciência em geral. Atualmente interessado em' +
+            'Realidade Virtual, Realidade Aumentada e Computação para Educação.',
+        );
+
+
+        TRANSLATION.add(
+            'developer-header',
+            'Developer',
+            'Desenvolvedor',
+        );
+
+        TRANSLATION.add(
+            '.info-button',
+            'More info',
+            'Mais informações',
+        );
+
+        TRANSLATION.add(
+            '#contact-header',
+            'Contact',
+            'Contato',
+        );
+
+        TRANSLATION.add(
+            '#contact-content',
+            'Lets get in touch and talk about your next project.',
+            'Vamos entrar em contato e falar sobre seu próximo projeto.',
+        );
+
+        TRANSLATION.add(
+            '#modal-message',
+            'Your message was sent!',
+            'Sua mensagem foi enviada!',
+        );
+
+        TRANSLATION.add(
+            '#modal-header',
+            'Contact',
+            'Contato'
+        );
+
+        TRANSLATION.add(
+            '#message-button',
+            'Send message',
+            'Enviar mensagem'
+        );
+
+        TRANSLATION.add(
+            '#comment',
+            'Name',
+            'Nome'
+        );
+
+    </script>
+
+</body>
+
+</html>
