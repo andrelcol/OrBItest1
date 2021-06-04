@@ -72,7 +72,7 @@ class Translation {
     }
 
     redirect(path, hash, newTab) {
-        const prevPath = window.location.origin === "https://avrgroup.github.io" ? '/vrtools/' : '/';
+        const prevPath = window.location.origin === "https://avrgroup.github.io" ? '/OrBI/' : '/';
 
         if (!hash) {
             hash = '';
