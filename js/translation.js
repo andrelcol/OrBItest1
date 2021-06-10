@@ -1,17 +1,15 @@
 class Translation {
     constructor() {
         this.ptBR = [
-            { element: '.menu-vrapps', content: 'Apps em RV' },
-            { element: '.menu-projects', content: 'Aplicações' },
+            { element: '.menu-projects', content: 'Projetos' },
             { element: '.menu-about', content: 'Sobre' },
-            { element: '.menu-contact', content: 'Desenvolvedor' },
+            { element: '.menu-howto', content: 'Como usar' },
         ];
 
         this.enUS = [
-            { element: '.menu-vrapps', content: 'VR Apps' },
-            { element: '.menu-projects', content: 'Applications' },
+            { element: '.menu-projects', content: 'Projects' },
             { element: '.menu-about', content: 'About' },
-            { element: '.menu-contact', content: 'Developer' },
+            { element: '.menu-howto', content: 'How to Use' },
         ];
 
         this.onTranslate = null;

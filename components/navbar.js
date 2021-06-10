@@ -4,7 +4,7 @@ class Navbar extends HTMLElement {
     }
 
     connectedCallback() {
-        const prevPath = window.location.origin === "https://avrgroup.github.io" ? '/vrtools/' : '/';
+        const prevPath = window.location.origin === "https://avrgroup.github.io" ? '/OrBI/' : '/';
 
         this.innerHTML = `
     <style>
@@ -16,6 +16,10 @@ class Navbar extends HTMLElement {
             background-color: #333;
             margin: 3px 0;
             transition: 0.4s;
+        }
+
+        .bg {
+            background-color: rgba(238, 238, 238, 1)
         }
 
         /* Rotate first bar */
@@ -73,7 +77,7 @@ class Navbar extends HTMLElement {
 
         #lang-options {
             position: absolute;
-            right: 19em;
+            right: 20em;
             width: 12em;
             background-color: white;
         }
@@ -87,19 +91,17 @@ class Navbar extends HTMLElement {
     </style>
 
     <div class="w3-top">
-        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <a href="javascript: TRANSLATION.redirect('', '#applications')" class="w3-bar-item w3-button"><b>OrBI</b></a>
-
+        <div id="wrapper" class="w3-bar w3-wide ">
             <!-- Float links to the right. Hide them on small screens -->
-            <div class="w3-right w3-hide-small w3-hide-medium">
+            <div id="nav" class="w3-right w3-hide-small w3-hide-medium">
                 <a id="navFlag" href="javascript:void(0);" onclick="toggleNavFlag()"
                     class="w3-bar-item w3-button ">
                     <img id="select-flag" class="flag" src="${prevPath}img/flags/us-icon.png">
                 </a>
 
-                <a href="javascript: TRANSLATION.redirect('', '#applications')" class="w3-bar-item w3-button menu-projects">Applications</a>
                 <a href="javascript: TRANSLATION.redirect('', '#about')" class="w3-bar-item w3-button menu-about">About</a>
-                <a href="javascript: TRANSLATION.redirect('', '#developer')" class="w3-bar-item w3-button menu-contact">Developer</a>
+                <a href="javascript: TRANSLATION.redirect('', '#projects')" class="w3-bar-item w3-button menu-projects">Projects</a>
+                <a href="javascript: TRANSLATION.redirect('', '#howto')" class="w3-bar-item w3-button menu-howto">How to Use</a>
             </div>
 
             <!-- Burger Menu-->
@@ -111,13 +113,13 @@ class Navbar extends HTMLElement {
             </a>
 
             <!-- Navbar on small screens -->
-            <div id="navSmall" class="w3-bar-block w3-hide w3-hide-large">
-                <a href="javascript: TRANSLATION.redirect('', '#applications')" class="w3-bar-item w3-button menu-projects" onclick="toggleFunction()">Applications</a>
+            <div id="navSmall" class="w3-bar-block w3-hide w3-hide-large w3-padding w3-border-bottom">
                 <a href="javascript: TRANSLATION.redirect('', '#about')" class="w3-bar-item w3-button menu-about" onclick="toggleFunction()">About</a>
-                <a href="javascript: TRANSLATION.redirect('', '#developer')" class="w3-bar-item w3-button menu-contact" onclick="toggleFunction()">Developer</a>
+                <a href="javascript: TRANSLATION.redirect('', '#projects')" class="w3-bar-item w3-button menu-projects" onclick="toggleFunction()">Projects</a>
+                <a href="javascript: TRANSLATION.redirect('', '#howto')" class="w3-bar-item w3-button menu-howto" onclick="toggleFunction()">How to Use</a>
 
                 <!-- Languages sub-section -->
-                <a href="javascript:void(0)" class="w3-border-top w3-bar-item "></a>
+                <a href="javascript:void(0)" class="w3-bar-item "></a>
                 <a href="javascript:void(0)" class="nav-lang-option us-option selected"
                     onclick="changeSelectedLanguage('en-US');">
                     <img class="flag" src="${prevPath}img/flags/us-icon.png">
@@ -147,12 +149,15 @@ class Navbar extends HTMLElement {
 }
 
 function toggleFunction() {
-    const nav = document.getElementById("navSmall");
+    const navSmall = document.getElementById("navSmall");
+    const wrapper = document.getElementById("navSmall")
     const icon = document.querySelector('.menu-icon');
 
     icon.classList.toggle('change');
 
-    nav.classList.toggle('w3-show');
+    navSmall.classList.toggle('w3-show');
+
+    wrapper.classList.toggle('bg');
 }
 
 function toggleNavFlag() {
@@ -191,6 +196,17 @@ function changeSelectedLanguage(lang) {
     document.querySelector('#lang-options').classList.remove('w3-show');
 }
 
+// Change style of navbar on scroll
+window.onscroll = navbarScroll
+
+function navbarScroll() {
+    var navbar = document.getElementById("wrapper");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.classList.add('w3-white', 'w3-animate-top', 'w3-card')
+    } else {
+        navbar.classList.remove('w3-white', 'w3-animate-top', 'w3-card')
+    }
+}
 
 window.onload = function () {
     const url = new URLSearchParams(window.location.search);
