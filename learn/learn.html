@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<title>OrBI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/w3.css">
+<!-- <link rel="stylesheet" href="css/menu.css"> -->
+<link rel="shortcut icon" href="img/favicon.ico">
+<script src="../components/navbar.js"></script>
+<script src="../js/translation.js"></script>
+
+<style>
+    .project-title {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+</style>
+
+<body>
+    <!-- Navbar (sit on top) -->
+    <navbar-component></navbar-component>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+        <div class="w3-display-middle w3-margin-top w3-center">
+            <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>OrBI</b></span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
+        <div class="w3-container w3-row">
+            <p>aa</p>
+            <p></p>
+        </div>
+
+
+        <div class="w3-container w3-padding-32" id="projects">
+            <h3 id="header" class="w3-border-bottom w3-border-light-grey w3-padding-16">Usage</h3>
+            <p id="text">
+                <b>
+                - Import vr-interface to your code:
+                </b>
+                <p>
+                    &lt;script type="text/javascript" charset="UTF-8" src="path/to/vr-interface.js">&lt;/script>"
+                </p>
+                <b>
+                    - Call it in an aframe entity and pass the options to config like the example below:
+                </b>
+                <code typetext="text">
+                    <a-entity vr-interface="dimension: 3 2; orbits: 1 1.5 2 ; theta: 90; rho: 0; transparency: true; gap: 0.01 0.01; border: 1.2 #6d7584; movementBar: true"</a-entity></a-entity>
+                </code>
+                <b>
+                    - To add buttons and use functions create a component in your code
+                </b>
+                <p>
+                    <pre>
+AFRAME.registerComponent('my-component', {
+    init: function () {
+       const vrInterface = document.querySelector('[vr-interface]').components['vr-interface'];
+       vrInterface.addButton('myButton', '#myTexture', function() {
+         vrInterface.showMessage('Button pressed');
+       });
+       vrInterface.addButton('myButton2', '#myTexture2', function() {
+         vrInterface.showMessage('Button 2 pressed', 'bottom');
+       });
+       vrInterface.addButton('myButtonRotate', '#myTexture3', function(){
+         vrInterface.updatePosition({theta: 180, rho: 15})
+       });
+    },
+});
+                    </pre>
+                </p>
+                
+                <b>- There are two ways to define the position to the vr-interface: relative to the camera and relative to the world.</b>
+                <p>  Positioning relative to the camera works similar to polar coordinates, where the camera is the pole and you define some orbits (distances to the camera), theta (horizontal angle), and rho (vertical angle)</p>
+                    &lt;a-entity vr-interface="orbits: 1; theta: 45; rho: 45;"></a-entity>
+                <p>Positioning relative to the world works like positioning regular a-frame object, you define position and rotation in each axis</p>
+                    &lt;a-entity vr-interface="worldPosition: -1 1.6 -1; rotation: 0 45 0">
+                    </p> The advantage of positioning relative to the camera is being able to move the vr-interface if movementBar is set to true;</p>
+            </p>
+            <b>Properties:</b>
+            <pre>
+- dimension: dimension of the interface; default: { x: 1, y: 1 };
+- visible: visibilty of the interface; default: true;
+- orbits: distances from the camera;
+- theta: horizontal rotation in degrees;
+- rho: vertical rotation in degrees;
+- worldPosition: a second way for positioning the interface, it overrides the orbital way;
+- rotation: Defines the rotation in x, y and z;
+- movementBar: whether to display move bar or not, doesn't work with world position;
+- dimension: number of lines and columns of the imaginary matrix in which the buttons will be placed;
+- centralize: whether to align buttons to the center, if false they are aligned to the top-left; 
+- buttonSize: individual button size;
+- transparency: whether the textures have transparency;
+- gap: distance beteween the buttons in the x and y axis;
+- messagePos: default position of the message box when it's called;
+- messageColor: text color of the message box;
+- messageBG: background color of the message box;
+- cursorColor: defines the color of the aim cursor;
+- cursorPosition: defines the positon of the aim cursor, usually it doesn't need to change;
+- raycaster: defines near and far properties of the raycaster;
+- border: thickness and color of button border, if nothing is set, no border is added.
+            </pre>
+            <b>Functions:</b>
+            <pre>
+- addButton(buttonName, idOfTexture, callback) - adds a button to the interface
+- showMessage(message, position) - shows message, position parameter is optional
+- showSideText() - shows a permanent multiline message to the right of the interface
+- hideSideText() - hides side text
+- updatePosition({radius, theta, rho, worldPosition}) - should be called if the camera position changes or if you want to change one parameter. All parameters are optional.
+- hide() - hide the interface
+- show() - make interface visible
+</pre>
+        </div>
+
+        <!-- Project Section -->
+       
+
+    </div>
+    </div>
+
+    <script>
+  
+
+    </script>
+
+</body>
+
+</html>
